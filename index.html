@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Min Leaflet-karta</title>
 
+  <!-- 1) Länka in Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <style>
+    /* 4) Se till att kartan har höjd */
+    #map {
+      height: 500px; /* ex 500px hög, anpassa som du vill */
+      width: 100%;   /* bredden 100% av fönstret */
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 3) Div för kartan -->
+  <div id="map"></div>
+
+  <!-- 2) Länka in Leaflet JavaScript (läggs efter Leaflets CSS) -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+  </script>
+
+  <script>
+    // Här initierar du din karta med Leaflet
+    // Sker efter att Leaflet JS är inladdat
+    document.addEventListener('DOMContentLoaded', function() {
+      // Skapa en karta, koppla den till div "map"
+      const map = L.map('map').setView([56.0, 14.0], 6);
+
+      // Lägg in en tileLayer (OpenStreetMap som exempel)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      // Exempel: Lägg in en markör
+      L.marker([56.0, 14.0])
+        .addTo(map)
+        .bindPopup('Hej från Leaflet!')
+        .openPopup();
+    });
+  </script>
+
+</body>
+</html>

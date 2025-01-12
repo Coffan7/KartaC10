@@ -17,8 +17,8 @@
   <style>
     /* Se till att kartan har höjd */
     #map {
-      height: 500px; /* ex 500px hög, anpassa som du vill */
-      width: 100%;   /* bredden 100% av fönstret */
+      height: 500px;
+      width: 100%;
       margin: 0;
       padding: 0;
     }
@@ -29,31 +29,15 @@
   <!-- Div för kartan -->
   <div id="map"></div>
 
-  <!-- Länka in Leaflet JavaScript -->
+  <!-- Länka in Leaflet JavaScript (MÅSTE ligga före script.js) -->
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin="">
   </script>
 
-  <script>
-    // Initiera din karta med Leaflet
-    document.addEventListener('DOMContentLoaded', function() {
-      // Skapa en karta, koppla den till div "map"
-      const map = L.map('map').setView([56.0, 14.0], 6);
-
-      // Lägg in en tileLayer (OpenStreetMap som exempel)
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
-
-      // Lägg in en markör
-      L.marker([56.0, 14.0])
-        .addTo(map)
-        .bindPopup('Hej från Leaflet!')
-        .openPopup();
-    });
-  </script>
+  <!-- Länka till din egna script.js-fil -->
+  <script src="script.js"></script>
 
 </body>
 </html>
